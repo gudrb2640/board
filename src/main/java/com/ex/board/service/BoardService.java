@@ -1,6 +1,8 @@
 package com.ex.board.service;
 
 import com.ex.board.dto.BoardDTO;
+import com.ex.board.dto.PageRequestDTO;
+import com.ex.board.dto.PageResultDTO;
 import com.ex.board.entity.Board;
 import com.ex.board.entity.Member;
 
@@ -8,6 +10,13 @@ public interface BoardService {
 
     Long register(BoardDTO dto);
 
+    PageResultDTO<BoardDTO, Object[]> getList(PageRequestDTO pageRequestDTO);
+
+    BoardDTO get(Long bno);
+
+    void removeWithReply(Long bno);
+
+    void modify(BoardDTO boardDTO);
     
     default Board dtoToEntity(BoardDTO dto) {
 
@@ -38,4 +47,6 @@ public interface BoardService {
 
         return boardDTO;
     }
+
+
 }
