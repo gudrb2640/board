@@ -6,9 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
 import java.util.stream.IntStream;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ReplyRepositoryTest {
@@ -36,8 +35,14 @@ class ReplyRepositoryTest {
     }
 
     @Test
-    void deleteReply() {
-        repository.deleteAll();
+    void testListByBoard() {
+
+        List<Reply> replyList = repository.getRepliesByBoardOrderByRno(Board.builder()
+                .bno(97L).build());
+
+        replyList.forEach(reply -> {
+            System.out.println(reply);
+        });
     }
 
 }

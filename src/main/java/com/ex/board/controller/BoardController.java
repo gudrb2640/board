@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/board/")
 @RequiredArgsConstructor
 public class BoardController {
+
     private final BoardService boardService;
 
     @GetMapping("/list")
