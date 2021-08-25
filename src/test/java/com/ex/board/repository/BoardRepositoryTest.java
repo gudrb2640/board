@@ -91,4 +91,18 @@ class BoardRepositoryTest {
         boardRepository.deleteAll();
     }
 
+    @Test
+    void
+    testSearch1() {
+
+        boardRepository.search1();
+    }
+
+    @Test
+    void testSearchPage() {
+        Pageable pageable = PageRequest.of(1, 10, Sort.by("bno").descending()
+                .and(Sort.by("title").ascending()));
+        Page<Object[]> result = boardRepository.searchPage("t", "1", pageable);
+    }
+
 }
